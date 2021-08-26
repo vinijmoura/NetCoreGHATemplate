@@ -27,5 +27,5 @@ jobs:
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.4
       with:
-        name: Upload Build Artifact
+        name: NetCoreGHATemplate
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}

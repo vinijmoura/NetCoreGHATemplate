@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: vinijmoura/TemplatesYML@v1
+    - uses: vinijmoura/TemplatesYML@v2
       with:
         WebAppPackagePath: ${{env.AZURE_WEBAPP_PACKAGE_PATH}}
         Configuration: ${{env.CONFIGURATION}}

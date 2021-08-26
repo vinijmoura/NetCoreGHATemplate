@@ -12,20 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET Core SDK ${{ env.DOTNET_CORE_VERSION }}
-      uses: actions/setup-dotnet@v1
+    - uses: vinijmoura/TemplatesYML@v1
       with:
-        dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
-    - name: Restore packages
-      run: dotnet restore
-    - name: Build app
-      run: dotnet build --configuration ${{ env.CONFIGURATION }} --no-restore
-    - name: Test app
-      run: dotnet test --no-build
-    - name: Publish app for deploy
-      run: dotnet publish --configuration ${{ env.CONFIGURATION }} --no-build --output "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}"
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.2.4
-      with:
-        name: NetCoreGHATemplate
-        path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        WebAppPackagePath: ${{env.AZURE_WEBAPP_PACKAGE_PATH}}
+        Configuration: ${{env.CONFIGURATION}}
+        DotNetCoreVersion: ${{env.DOTNET_CORE_VERSION}}
